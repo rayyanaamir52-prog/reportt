@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "senior", "manager", "pending"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "role"]
+    },
+    "Report": {
+      "title": "Report",
+      "description": "Daily site report",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "date": { "type": "string" },
+        "siteName": { "type": "string" },
+        "siteDescription": { "type": "string" },
+        "workCompleted": { "type": "string" },
+        "numWorkers": { "type": "number" },
+        "remarks": { "type": "string" },
+        "photos": { "type": "array" },
+        "files": { "type": "array" },
+        "status": { "type": "string", "enum": ["pending", "reviewed"] },
+        "reviewerId": { "type": "string" },
+        "reviewerName": { "type": "string" },
+        "reviewDate": { "type": "string" },
+        "authorId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "date", "siteName", "siteDescription", "workCompleted", "numWorkers", "remarks", "photos", "files", "status", "authorId", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profiles and roles"
+    },
+    "/reports/{reportId}": {
+      "schema": { "$ref": "#/entities/Report" },
+      "description": "Daily site reports"
+    }
+  }
+}

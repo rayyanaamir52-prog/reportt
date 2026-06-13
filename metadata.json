@@ -1,0 +1,6 @@
+{
+  "name": "WCH Site Report",
+  "description": "Daily site reporting and tracking application for WCH.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
